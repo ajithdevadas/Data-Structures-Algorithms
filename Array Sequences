@@ -1,0 +1,139 @@
+Anagram Check
+Problem
+Given two strings, check to see if they are anagrams. An anagram is when the two strings can be written using the exact same letters (so you can just rearrange the letters to get a different phrase or word).
+
+For example:
+
+"public relations" is an anagram of "crap built on lies."
+
+"clint eastwood" is an anagram of "old west action"
+
+Note: Ignore spaces and capitalization. So "d go" is an anagram of "God" and "dog" and "o d g".
+
+#primitive approach-----------------------------------------------------------------------------------------------------
+
+def anagram(s1,s2):
+    
+    a = s1.replace(" ", "")
+    b = s2.replace (" ", "")
+   
+    asort = sorted(a)
+    bsort = sorted(b)
+    
+    if len(asort) != len(bsort):
+        return False
+    
+   
+    for i in range(len(asort)):
+        if asort[i] != bsort[i]:
+            return False
+        else:
+            return True
+    
+    pass
+    
+#Efficient approach using dict structure--------------------------------------------------------------------------------
+
+#using dict
+
+def anagram1(s1,s2):
+    
+    a = s1.replace(" ", "")
+    b = s2.replace (" ", "")
+   
+   
+    if len(a) != len(b):
+        return False
+    
+    count = {}
+    
+    for i in a:
+        if i in count:
+            count[i] += 1
+        else:
+            count[i] = 1
+            
+    for j in b:
+        if j in count:
+            count[j] -= 1
+        else:
+            count[j] = 1
+            
+    for k in count:
+        if count[k] != 0:
+            return False
+        
+    return True
+
+    
+    pass
+    
+****************************************************************************************************************************
+Array Pair Sum
+Problem
+Given an integer array, output all the unique pairs that sum up to a specific value k.
+
+So the input:
+
+pair_sum([1,3,2,2],4)
+
+would return 2 pairs:
+
+ (1,3)
+ (2,2)
+
+NOTE: FOR TESTING PURPOSES CHANGE YOUR FUNCTION SO IT OUTPUTS THE NUMBER OF PAIRS
+
+#primitive approach o(n^2)
+
+def pair_sum (arr, z):
+    
+    copyDict = {}
+    sumDict = {}
+    i1 = 1
+    l = 0
+    count = 0
+    
+    for i in arr:
+        copyDict[i1] = i
+        i1+=1
+    
+    for key1, value1 in copyDict.items():
+        for key2, value2 in copyDict.items():
+            if key1 < key2:
+                sumDict[l] = value1 + value2
+                l+=1
+    
+    for m in sumDict:
+        if sumDict[m] == z:
+            count+=1
+     
+    print count
+    
+    pass
+    
+#efficient approach o(n)
+
+def pair_sum1 (arr, z):
+    
+    seen = {}
+    output = {}
+    j = 0
+    k = 0
+    
+    for i in arr:
+        
+        diff = z - i
+        
+        if diff not in seen:
+            seen[j] = i
+        else:
+            output[k] = i
+            
+    return len(output)
+    
+    pass
+
+    
+    
+    
