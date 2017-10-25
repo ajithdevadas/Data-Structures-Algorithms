@@ -51,3 +51,35 @@ print(r.getRightChild())
 print(r.getRightChild().getRootVal())
 r.getRightChild().setRootVal('hello')
 print(r.getRightChild().getRootVal())
+
+#Traversing the tree
+
+#Preorder
+
+def Preorder (tree):
+    if (tree):
+        print (tree.getRootVal())
+        Preorder (tree.getLeftChild ())
+        Preorder (tree.getRightChild ())
+    
+ #Postorder 
+ 
+ def Postorder (tree):
+    if (tree):
+        Postorder (tree.getLeftChild ())
+        Postorder (tree.getRightChild ())
+        print (tree.getRootVal ())
+        
+ #Inorder
+  
+ def Inorder (tree):
+    if (tree):
+        Inorder (tree.getLeftChild ())
+        print (tree.getRootVal ())
+        Inorder (tree.getRightChild ())
+
+ 
+
+        
+ 
+
