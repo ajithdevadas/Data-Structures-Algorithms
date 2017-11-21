@@ -34,7 +34,33 @@ class BinaryTree(object):
 
     def getRootVal(self):
         return self.key
+           
+    #traversal class methods
+    
+    #preorder
+    def preOrder(self)
+        print(self.key)
+        if (self.leftChild):
+            self.leftChild.preOrder()
+        if (self.rightChild):
+            self.rightChild.preOrder()
+      
+      #postorder
+    def postOrder(self)
+        if (self.leftChild):
+            self.leftChild.postOrder()
+        if (self.rightChild):
+            self.rightChild.postOrder()
+        print(self.key)
         
+      #inorder
+    def inOrder(self)
+        if (self.leftChild):
+            self.leftChild.inOrder()
+        print(self.key) 
+        if (self.rightChild):
+            self.rightChild.inOrder()
+         
         
     ------------------------------------------------------
     
